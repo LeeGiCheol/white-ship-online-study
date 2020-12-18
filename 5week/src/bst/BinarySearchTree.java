@@ -134,18 +134,20 @@ public class BinarySearchTree {
 
 		return rightNode;
 	}
-	
+
+
 	void inOrder(Node node) {
 		if (node != null) {
 			inOrder(node.left);
-			System.out.println(node.value);
+			System.out.print(node.value + " ");
 			inOrder(node.right);
 		}
 	}
 
+
 	void preOrder(Node node) {
 		if (node != null) {
-			System.out.println(node.value);
+			System.out.print(node.value + " ");
 			preOrder(node.left);
 			preOrder(node.right);
 		}
@@ -155,7 +157,7 @@ public class BinarySearchTree {
 		if (node != null) {
 			postOrder(node.left);
 			postOrder(node.right);
-			System.out.println(node.value);
+			System.out.print(node.value + " ");
 		}
 	}
 
@@ -228,12 +230,18 @@ public class BinarySearchTree {
 		bst.addNode(13);
 		bst.addNode(12);
 
-	//	bst.deleteNode(10);
-	//	bst.deleteNode(2);
-	//  bst.deleteNode(5);
+//		bst.deleteNode(10);
+//		bst.deleteNode(2);
+//		bst.deleteNode(5);
 
 		System.out.println(bst.dfs(bst.root)); // [1, 5, 6, 7, 8, 10, 11, 12, 13]
 		System.out.println(bst.bfs(bst.root)); // [10, 5, 11, 1, 7, 13, 6, 8, 12]
+
+		bst.inOrder(bst.root);				   // 1 5 6 7 8 10 11 12 13
+		System.out.println();
+		bst.preOrder(bst.root);				   // 10 5 1 7 6 8 11 13 12
+		System.out.println();
+		bst.postOrder(bst.root);			   // 1 6 8 7 5 12 13 11 10
 	}
 }
 
