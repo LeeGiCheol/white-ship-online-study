@@ -1,4 +1,4 @@
-package bst;
+package com.whiteship.practice.bst;
 
 public class Node {
     int value;

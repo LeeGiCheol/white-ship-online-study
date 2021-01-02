@@ -1,4 +1,4 @@
-package bst;
+package com.whiteship.practice.bst;
 
 import java.util.*;
 
@@ -217,32 +217,30 @@ public class BinarySearchTree {
 	}
 
 
-	public static void main(String[] args) {
-		BinarySearchTree bst = new BinarySearchTree();
-
-		bst.addNode(10);
-		bst.addNode(5);
-		bst.addNode(1);
-		bst.addNode(7);
-		bst.addNode(6);
-		bst.addNode(8);
-		bst.addNode(11);
-		bst.addNode(13);
-		bst.addNode(12);
-
-//		bst.deleteNode(10);
-//		bst.deleteNode(2);
-//		bst.deleteNode(5);
-
-		System.out.println(bst.dfs(bst.root)); // [1, 5, 6, 7, 8, 10, 11, 12, 13]
-		System.out.println(bst.bfs(bst.root)); // [10, 5, 11, 1, 7, 13, 6, 8, 12]
-
-		bst.inOrder(bst.root);				   // 1 5 6 7 8 10 11 12 13
-		System.out.println();
-		bst.preOrder(bst.root);				   // 10 5 1 7 6 8 11 13 12
-		System.out.println();
-		bst.postOrder(bst.root);			   // 1 6 8 7 5 12 13 11 10
+	public boolean search(int value) {
+		return search(root, value);
 	}
+
+
+	public boolean search(Node node, int value) {
+		boolean flag = false;
+
+		while ((node != null) && !flag) {
+			int nodeValue = node.value;
+
+			if (value < nodeValue) {
+				node = node.left;
+			} else if (value > nodeValue) {
+				node = node.right;
+			} else {
+				flag = true;
+				break;
+			}
+			flag = search(node, value);
+		}
+		return flag;
+	}
+
 }
 
 
