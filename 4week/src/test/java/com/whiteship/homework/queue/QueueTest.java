@@ -40,7 +40,7 @@ class QueueTest {
 
     @Test
     @DisplayName("큐에 값을 넣는다.")
-    void enqueue() {
+    void enqueueTest() {
         queue.clear();
 
         queue.enqueue(30);
@@ -54,7 +54,7 @@ class QueueTest {
 
     @Test
     @DisplayName("큐에서 값을 뺀다.")
-    void dequeue() {
+    void dequeueTest() {
         assertEquals(5, queue.size());
 
         queue.dequeue();

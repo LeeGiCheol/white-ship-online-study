@@ -4,6 +4,10 @@ public class LinkedList {
 
     ListNode head;
 
+    public ListNode getHead() {
+        return head;
+    }
+
     public void add(int value) {
         ListNode node = new ListNode(value);
 
@@ -50,6 +54,31 @@ public class LinkedList {
         crnt = prev;
     }
 
+
+    public ListNode add(ListNode head, int value) {
+        ListNode node = new ListNode(value);
+
+        if (head == null) {
+            head = node;
+            return head;
+        }
+
+        if (head.getNext() == null) {
+            head.setNext(node);
+            return head;
+        }
+
+        ListNode crnt = head;
+
+        while (crnt.getNext() != null) {
+            crnt = crnt.getNext();
+        }
+
+        crnt.setNext(node);
+
+        return head;
+    }
+
     public void remove() {
         if (head == null) {
             return;
@@ -88,12 +117,37 @@ public class LinkedList {
         prev.setNext(node.getNext());
     }
 
+
+    public ListNode remove(ListNode head, int position) {
+        ListNode node = head;
+        ListNode prev = node;
+
+        if (position == 0) {
+            head = head.getNext();
+            return head;
+        }
+
+        while (position-- > 0) {
+            if(node.getNext() == null) {
+                System.out.println("해당 인덱스에 노드가 없습니다.");
+                return null;
+            }
+
+            prev = node;
+            node = node.getNext();
+        }
+
+        prev.setNext(node.getNext());
+
+        return prev;
+    }
+
+
     public int get(int index) {
         ListNode node = head;
 
         while (index-- > 0) {
             if (node.getNext() == null && index > 0) {
-                System.out.println("null");
                 throw new IndexOutOfBoundsException();
             }
 

@@ -18,7 +18,7 @@ class ListNodeStackTest {
 
     @Test
     @DisplayName("스택이 비었는지 점검")
-    void isEmpty() {
+    void isEmptyTest() {
         assertFalse(listNodeStack.isEmpty());
     }
 

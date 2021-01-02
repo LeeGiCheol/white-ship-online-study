@@ -27,7 +27,6 @@ class LinkedListTest {
     @DisplayName("리스트 원하는 위치에 노드를 생성한다. 순서대로 넣지 않으면 null을 반환한다.")
     void idxAddTest() {
         LinkedList linkedList = new LinkedList();
-        this.head = linkedList.head;
 
         linkedList.add(10, 0);
         linkedList.add(20, 1);
@@ -35,7 +34,6 @@ class LinkedListTest {
 
         assertEquals(10, linkedList.head.getValue());
         assertEquals(20, linkedList.head.getNext().getValue());
-
         assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(3));
     }
 
